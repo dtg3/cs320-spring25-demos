@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block body %}
+    <form action="/update/" method="POST">
+        <div class="list-group pb-5">
+            {% for item in todo %}
+                {% if not item['complete'] %}
+                    <label class="list-group-item">
+                    <input class="form-check-input me-1" name="checkbox" type="checkbox" value="{{ item['id'] }}">
+                    {{ item['task'] }}
+                    </label>
+                {% endif %}
+            {% endfor %}
+        </div>
+        
+        <hr class="pb-5">
+
+        <h5>Completed:</h5>
+        <div class="list-group pb-5">
+            {% for item in todo %}
+                {% if item['complete'] %}
+                    <label class="list-group-item text-black-50">
+                    <input class="form-check-input me-1" name="checkbox" type="checkbox" value="{{ item['id'] }}" {{ 'checked' if item['complete'] else '' }}>
+                    <s>{{ item['task'] }}</s>
+                    </label>
+                {% endif %}
+            {% endfor %}
+        </div>
+        <button type="submit" class="btn btn-primary">Update</button>
+    </form>
+{% endblock %}

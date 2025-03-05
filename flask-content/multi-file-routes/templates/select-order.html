@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<form action="/order-edit/" method="POST">
+    <label for="orders">Choose a grocery item:</label>
+    <select name="order_id" id="orders">
+        {% for order in orders_list %}
+            <option value={{order["order_id"]}}>{{order["order_id"]}}</option>
+        {% endfor %}
+    </select>
+    <input type="submit" value="Submit">
+</form>
+{% endblock %}

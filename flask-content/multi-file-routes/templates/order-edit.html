@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<h1>Edit the Order Items:</h1>
+
+{% for items in order_items %}
+<p>
+    <form action="/order-edit/" method="POST">
+        <!-- 
+            This control is hidden and can hold the ID of the order.
+            This is absolutely a "hack" work around and using a session
+            is probably the best idea, but it will do for our purposes.
+        -->
+        <input type="hidden" name="order_id" value={{order_id}}>
+        <input type="text" name="item_name" value="{{items["item_name"]}}">
+        <button name="update" type="submit" value={{items["item_id"]}}>Update</button>
+    </form>
+</p>
+{% endfor %}
+<a href="/orders/">Back Home</a>
+{% endblock %}
