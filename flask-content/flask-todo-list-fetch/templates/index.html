@@ -1,0 +1,84 @@
+{% extends "layout.html" %}
+
+{% block body %}
+    <form name="todo-list">
+        <div id="todo" class="list-group pb-5">
+            {% for item in todo %}
+                {% if not item['complete'] %}
+                    <label class="list-group-item">
+                    <input class="form-check-input me-1" name="checkbox" type="checkbox" value="{{ item['id'] }}" />
+                    <span>{{ item['task'] }}</span>
+                    </label>
+                {% endif %}
+            {% endfor %}
+        </div>
+        
+        <hr class="pb-5">
+
+        <h5>Completed:</h5>
+        <div id="done" class="list-group pb-5">
+            {% for item in todo %}
+                {% if item['complete'] %}
+                    <label class="list-group-item text-black-50">
+                    <input class="form-check-input me-1" name="checkbox" type="checkbox" value="{{ item['id'] }}"  checked />
+                    <s>{{ item['task'] }}</s>
+                    </label>
+                {% endif %}
+            {% endfor %}
+        </div>
+        <button type="submit" class="btn btn-primary">Update</button>
+    </form>
+
+    <script type="text/javascript">
+        (function() {
+            const form = document.querySelector('form[name="todo-list"]');
+            form.addEventListener('submit', function(event) {
+                event.preventDefault();
+                const formData = new FormData(event.target);
+                fetch('/update/', {
+                    'method': 'POST', 
+                    'body': formData
+                }).then((response) => response.json())
+                .then((data) => {
+                    let todoList = document.getElementById("todo");
+                    let doneList = document.getElementById("done");
+                    let todoItems = [];
+                    let doneItems = [];
+                    console.log(data);
+                    for (let d in data) {
+                        let root_label = document.createElement("label");
+                        let input = document.createElement("input");
+                            input.setAttribute("class", "form-check-input me-1");
+                            input.setAttribute("name", "checkbox");
+                            input.setAttribute("type", "checkbox");
+                            input.setAttribute("value", data[d].id);
+                            input.checked = false;
+
+                        if (data[d].complete) {
+                            root_label.setAttribute("class", "list-group-item text-black-50");
+                            input.checked = true;
+                            let checkText = document.createElement("s");
+                            checkText.innerText = data[d].task;
+                            root_label.appendChild(input);
+                            root_label.appendChild(checkText);
+                            doneItems.push(root_label);
+                        }
+                        else {
+                            root_label.setAttribute("class", "list-group-item");
+                            input.checked = false;
+                            root_label.appendChild(input);
+                            let checkText = document.createElement("span");
+                            checkText.innerText = data[d].task;
+                            root_label.appendChild(checkText);
+                            todoItems.push(root_label);
+                        }
+                    }
+                    console.log(todoList);
+                    todoList.replaceChildren(...todoItems);
+                    doneList.replaceChildren(...doneItems);
+                });
+            });
+        })({{ url_for('.index') | tojson }});
+        </script>
+
+{% endblock %}
