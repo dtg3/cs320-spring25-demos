@@ -3,10 +3,12 @@ form {
     border-collapse: separate;
     border-spacing: 10px;
 }
+
 form div {
     display: table-row;
 }
-form label, form input form select{
+
+form label, form input form select {
     display: table-cell;
     padding: 6px;
 }
