@@ -75,6 +75,7 @@ nav {
     width: 100%;
 }
 
+/* This selects all anchor tags that are children of the nav tag */
 nav a {
     float: left;
     color: #f2f2f2;
@@ -84,11 +85,13 @@ nav a {
     font-size: 17px;
 }
 
+/* hover is a pseudoclass that allows you to apply a style when the mouse moves ontop of content */
 nav a:hover {
     background-color: #bc94df;
     color: black;
 }
 
+/* A class to make the nav link appear different when we are on that page */
 nav a.active {
     background-color: #e215a8;
     color: white;
