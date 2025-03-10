@@ -14,55 +14,62 @@
     </head>
 
     <body>
-        <!--
-            A span tag is useful if you want to apply a style to a specfic part of 
-            content without altering the rest of it.
-        -->
-        <h1 id="site-heading">Hello <span class="red-text">World!</span></h1>
-        
-        <div>
-            I just made a <span class="bold blue">webpage!</span>
-            You can find plenty of information about HTML tags from online resources like:
-        </div>
-        
-        <div class="idea">
-            <!--- NOTE THE P tags have a different font that overrides the one from BODY -->
-            <p>Sometimes you have a great idea.</p>
-            <p class="yellow">The idea burns like the sun!</p>
-        </div>
+        <nav>
+            <a class="active" href="#">Home</a></li>
+            <a href="#">Page 1</a></li>
+            <a href="#">Page 2</a></li>
+            <a href="#">Page 3</a></li>
+        </nav>
+        <div class="content">
+            <!--
+                A span tag is useful if you want to apply a style to a specfic part of 
+                content without altering the rest of it.
+            -->
+            <h1 id="site-heading">Hello <span class="red-text">World!</span></h1>
+            
+            <div>
+                I just made a <span class="bold blue">webpage!</span>
+                You can find plenty of information about HTML tags from online resources like:
+            </div>
+            
+            <div class="idea">
+                <!--- NOTE THE P tags have a different font that overrides the one from BODY -->
+                <p>Sometimes you have a great idea.</p>
+                <p class="yellow">The idea burns like the sun!</p>
+            </div>
 
-        <ul>
-            <li>
-                <a href="https://www.w3schools.com/tags/ref_byfunc.asp" target="_blank">W3 Schools HTML Reference Guide By Category</a>
-            </li>
-            <li>
-                <a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank">Mozilla Developer Web Docs</a>
-            </li>
-        </ul>
-
-        <div>
-            There are TONS of ways to use CSS, but you can find a great tutorials and resources at <a href="https://www.w3schools.com/css/default.asp" target="_blank">W3 Schools</a>
-            <!-- 
-                Inserts a Line break (newline)
-                This has less spacing by default between content than using the <p> tag
-             -->
-            <br/>
-            There are also many web frameworks to help with getting your site styled:
             <ul>
-                <li><a href="https://getbootstrap.com/">Bootstrap</a></li>
-                <li><a href="https://tailwindcss.com/">Tailwind</a></li>
+                <li>
+                    <a href="https://www.w3schools.com/tags/ref_byfunc.asp" target="_blank">W3 Schools HTML Reference Guide By Category</a>
+                </li>
+                <li>
+                    <a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank">Mozilla Developer Web Docs</a>
+                </li>
             </ul>
+
+            <div>
+                There are TONS of ways to use CSS, but you can find a great tutorials and resources at <a href="https://www.w3schools.com/css/default.asp" target="_blank">W3 Schools</a>
+                <!-- 
+                    Inserts a Line break (newline)
+                    This has less spacing by default between content than using the <p> tag
+                -->
+                <br/>
+                There are also many web frameworks to help with getting your site styled:
+                <ul>
+                    <li><a href="https://getbootstrap.com/">Bootstrap</a></li>
+                    <li><a href="https://tailwindcss.com/">Tailwind</a></li>
+                </ul>
+            </div>
+
+            <!-- 
+                Style can be applied inline as an attribute on a tag, but use this sparingly
+                for special circumstances.
+            -->
+            <p>This image is the <span style="font-weight: bold;">actual size</span></p>
+            <div><img src="https://uploads.dailydot.com/6b1/3b/Commons-logo.png?auto=compress%2Cformat&ixlib=php-3.3.0"></div>
+            <p>These images are scaled by CSS</p>
+            <div><img class="resize" src="img/cs.png"></div>
+            <div><img class="resize" src="https://c.tenor.com/x8v1oNUOmg4AAAAd/rickroll-roll.gif"></div>
         </div>
-
-        <!-- 
-            Style can be applied inline as an attribute on a tag, but use this sparingly
-            for special circumstances.
-        -->
-        <p>This image is the <span style="font-weight: bold;">actual size</span></p>
-        <div><img src="https://uploads.dailydot.com/6b1/3b/Commons-logo.png?auto=compress%2Cformat&ixlib=php-3.3.0"></div>
-        <p>These images are scaled by CSS</p>
-        <div><img class="resize" src="img/cs.png"></div>
-        <div><img class="resize" src="https://c.tenor.com/x8v1oNUOmg4AAAAd/rickroll-roll.gif"></div>
-
     </body>
 </html>

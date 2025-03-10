@@ -56,8 +56,40 @@ p {
 }
 
 
-/* id and class selector */
+/* tag and class selector */
 img.resize {
     width:20%;
     height:20%;
+}
+
+div.content {
+    margin-top: 3%;
+}
+
+/* Simple Navigation Bar */
+nav {
+    overflow: hidden;
+    background-color: #7007b1;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+nav a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+nav a:hover {
+    background-color: #bc94df;
+    color: black;
+}
+
+nav a.active {
+    background-color: #e215a8;
+    color: white;
 }
