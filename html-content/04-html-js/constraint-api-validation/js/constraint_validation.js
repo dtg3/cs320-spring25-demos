@@ -81,6 +81,8 @@ function constraint_password_validator(event) {
     }
     else {
         var result = valid_password_check(password_field.value);
+        console.log(result);
+
         if (result == "special") {
             password_field.setCustomValidity("Password must have at least 1 special character!");
         }
@@ -103,24 +105,24 @@ function valid_password_check(password_string) {
     const special_characters = `\`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~`;
     const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     const digits = "0123456789";
-    
-    if (check_contents(password_string, special_characters)) {
+
+    if (!check_contents(password_string, special_characters)) {
         return "special";
     }
-    else if (check_contents(password_string, characters.toLowerCase())) {
+    else if (!check_contents(password_string, characters.toLowerCase())) {s
         return "lower";
     }
-    else if (check_contents(password_string, characters)) {
+    else if (!check_contents(password_string, characters)) {
         return "upper";
     }
-    else if (check_contents(password_string, digits)) {
+    else if (!check_contents(password_string, digits)) {
         return "digit";
-    }   
+    } 
     return "none";
 }
 
 function check_contents(input_string, compare_string) {
     return compare_string.split('').some(compare_string => {
-        return (!input_string.includes(compare_string));
+        return (input_string.includes(compare_string));
     });
 }
