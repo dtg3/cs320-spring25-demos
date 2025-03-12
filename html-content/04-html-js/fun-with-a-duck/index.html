@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Demo</title>
+        <script defer src="js/demo.js"></script>
+    </head>
+    <body>
+        <h1>Pet the Duck!</h1>
+        <div id="touch-duck"></div>
+        <img onclick="quack()" 
+            onmouseenter="scritch()"
+            onmouseout="scratch()" src="duck.jpg">
+        <div id="duck-noise"></div>
+        <h2>Duck Says: <span id="say" onkeypress="duckMSG(event)"></span></h2>
+    </body>
+</html>
