@@ -147,22 +147,22 @@ function custom_valid_password_check(password_string) {
         list_element.textContent = `must be at least ${custom_password_control.minLength} characters`;
         unordered_list.appendChild(list_element);
     }
-    if (!check_contents(password_string, special_characters)) {
+    if (check_contents(password_string, special_characters)) {
         var list_element = document.createElement("li");
         list_element.textContent = "needs at least one special character";
         unordered_list.appendChild(list_element);
     }
-    if (!check_contents(password_string, characters.toLowerCase())) {
+    if (check_contents(password_string, characters.toLowerCase())) {
         var list_element = document.createElement("li");
         list_element.textContent = "needs at least one lowercase character";
         unordered_list.appendChild(list_element);
     }
-    if (!check_contents(password_string, characters)) {
+    if (check_contents(password_string, characters)) {
         var list_element = document.createElement("li");
         list_element.textContent = "needs at least one uppercase character";
         unordered_list.appendChild(list_element);
     }
-    if (!check_contents(password_string, digits)) {
+    if (check_contents(password_string, digits)) {
         var list_element = document.createElement("li");
         list_element.textContent = "needs at least one digit";
         unordered_list.appendChild(list_element);

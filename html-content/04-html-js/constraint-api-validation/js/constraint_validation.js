@@ -104,16 +104,16 @@ function valid_password_check(password_string) {
     const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     const digits = "0123456789";
     
-    if (!check_contents(password_string, special_characters)) {
+    if (check_contents(password_string, special_characters)) {
         return "special";
     }
-    else if (!check_contents(password_string, characters.toLowerCase())) {
+    else if (check_contents(password_string, characters.toLowerCase())) {
         return "lower";
     }
-    else if (!check_contents(password_string, characters)) {
+    else if (check_contents(password_string, characters)) {
         return "upper";
     }
-    else if (!check_contents(password_string, digits)) {
+    else if (check_contents(password_string, digits)) {
         return "digit";
     }   
     return "none";
